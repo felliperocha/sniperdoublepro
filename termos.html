@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Uso - Sniper Double PRO</title>
+<meta name="description" content="Termos de Uso do Sniper Double PRO. Leia com atenção antes de adquirir o produto.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #131521;
+  --bg-card: rgba(30, 33, 48, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a5b0;
+  --text-muted: #6b7280;
+  --accent-red: #f12c4c;
+  --accent-green: #00d26a;
+  --accent-blue: #0a84ff;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f12c4c 50%, #0a84ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+
+.page-hero {
+  padding: 140px 0 60px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.page-hero .updated {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.legal-content { padding: 80px 0; }
+
+.legal-content h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 48px 0 16px;
+  color: var(--accent-red);
+}
+
+.legal-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: var(--text-primary);
+}
+
+.legal-content p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.legal-content ul {
+  margin-left: 24px;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+.legal-content li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.warning-box {
+  background: rgba(241, 44, 76, 0.05);
+  border: 1px solid rgba(241, 44, 76, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.warning-box h2 {
+  color: var(--accent-red);
+  margin-top: 0;
+}
+
+.warning-box p {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.warning-box p:last-child { margin-bottom: 0; }
+
+strong { color: var(--text-primary); }
+
+.help-box {
+  background: rgba(10, 132, 255, 0.05);
+  border: 1px solid rgba(10, 132, 255, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.help-box h4 {
+  color: var(--accent-blue);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 40px 0 24px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 24px 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(:last-child) { display: none; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <a href="index.html" class="logo">⚪ Sniper Double PRO</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="https://t.me/sniperdoublepro" target="_blank">💬 Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Termos de Uso</h1>
+    <p class="updated">Última atualização: 08 de julho de 2026</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="container">
+
+    <div class="warning-box">
+      <h2>⚠️ IMPORTANTE - LEIA COM ATENÇÃO:</h2>
+      <p>O Sniper Double PRO é uma ferramenta de <strong>monitoramento e análise</strong>. <strong>NÃO garantimos ganhos financeiros</strong>. Jogos de azar envolvem risco e podem causar perdas financeiras significativas e dependência. Use apenas se você for maior de 18 anos e apenas com dinheiro que pode perder.</p>
+      <p><strong>Não oferecemos garantia de reembolso.</strong> Por se tratar de produto digital, a compra é definitiva após confirmação do pagamento.</p>
+    </div>
+
+    <h2>1. Aceitação dos Termos</h2>
+    <p>Ao acessar ou utilizar o Sniper Double PRO, você concorda integralmente com estes Termos de Uso. Se não concordar, não utilize o serviço.</p>
+
+    <h2>2. Descrição do Serviço</h2>
+    <p>O Sniper Double PRO é uma ferramenta de software que monitora publicamente padrões do jogo "Double" oferecido pela plataforma Blaze e envia notificações ao usuário via Telegram quando detecta determinadas condições configuráveis.</p>
+    <p>O programa funciona <strong>apenas enquanto seu computador estiver ligado</strong> e é compatível exclusivamente com <strong>Windows 10 e Windows 11 (64 bits)</strong>.</p>
+    <p><strong>NÃO somos:</strong></p>
+    <ul>
+      <li>Afiliados, parceiros ou representantes da Blaze</li>
+      <li>Consultores financeiros ou de apostas</li>
+      <li>Garantidores de qualquer resultado financeiro</li>
+      <li>Uma plataforma de jogos</li>
+    </ul>
+
+    <h2>3. Elegibilidade</h2>
+    <p>Para utilizar nosso serviço, você deve:</p>
+    <ul>
+      <li>Ter pelo menos <strong>18 anos de idade</strong></li>
+      <li>Ter capacidade legal para contratar</li>
+      <li>Possuir um computador com Windows 10 ou Windows 11 (64 bits)</li>
+      <li>Ter uma conta no Telegram (gratuita)</li>
+      <li>Estar em jurisdição onde o uso é permitido por lei</li>
+    </ul>
+
+    <h2>4. Licença de Uso</h2>
+    <p>Ao adquirir o Sniper Double PRO, você recebe uma licença de uso <strong>pessoal, intransferível e não exclusiva</strong>. É proibido:</p>
+    <ul>
+      <li>Revender, sublicenciar ou distribuir o software</li>
+      <li>Fazer engenharia reversa ou descompilar</li>
+      <li>Remover avisos de copyright</li>
+      <li>Usar o software para fins ilegais</li>
+      <li>Compartilhar o software com terceiros</li>
+    </ul>
+    <p>O acesso vitalício permite uso em até <strong>2 computadores do mesmo usuário</strong>. Para uso comercial ou em mais máquinas, entre em contato.</p>
+
+    <h2>5. Pagamentos e Entrega</h2>
+
+    <h3>5.1 Preço</h3>
+    <p>O Sniper Double PRO é vendido por <strong>R$ 67,00 (sessenta e sete reais)</strong>, pagamento único via PIX.</p>
+
+    <h3>5.2 Forma de Pagamento</h3>
+    <p>O pagamento é realizado exclusivamente via PIX. Após entrar em contato via Telegram, você receberá a chave PIX para realizar o pagamento.</p>
+
+    <h3>5.3 Entrega do Produto</h3>
+    <p>O produto é entregue via Telegram em até <strong>72 horas</strong> após a confirmação do pagamento. Normalmente entregamos em menos de 24 horas.</p>
+
+    <h3>5.4 Sem Garantia de Reembolso</h3>
+    <p><strong>Não oferecemos garantia de reembolso.</strong> Por se tratar de um produto digital entregue via Telegram, a compra é definitiva após confirmação do pagamento. Certifique-se de que:</p>
+    <ul>
+      <li>Realmente deseja o produto</li>
+      <li>Seu computador atende aos requisitos (Windows 10 ou 11)</li>
+      <li>Entende que não há garantia de ganhos financeiros</li>
+    </ul>
+
+    <h2>6. Isenção de Garantias</h2>
+    <p><strong>O serviço é fornecido "como está".</strong> Não oferecemos nenhuma garantia, expressa ou implícita, incluindo:</p>
+    <ul>
+      <li>Que o serviço atenderá suas expectativas</li>
+      <li>Que o serviço estará disponível 100% do tempo</li>
+      <li>Que os resultados serão precisos ou lucrativos</li>
+      <li>Que você obterá ganhos financeiros</li>
+      <li>Que o serviço funcionará em sistemas que não sejam Windows 10 ou 11</li>
+    </ul>
+
+    <h2>7. Limitação de Responsabilidade</h2>
+    <p>Em nenhuma hipótese seremos responsáveis por:</p>
+    <ul>
+      <li>Perdas financeiras decorrentes do uso do serviço</li>
+      <li>Decisões de apostas tomadas com base em nossos alertas</li>
+      <li>Problemas na plataforma Blaze ou no Telegram</li>
+      <li>Danos indiretos, incidentais ou consequenciais</li>
+      <li>Problemas de compatibilidade com seu hardware ou software</li>
+      <li>Interrupção do monitoramento quando o computador for desligado</li>
+    </ul>
+
+    <h2>8. Jogo Responsável</h2>
+    <p>Você reconhece que:</p>
+    <ul>
+      <li>Jogos de azar envolvem risco de perda financeira</li>
+      <li>Pode causar dependência psicológica</li>
+      <li>Você deve apostar apenas valores que pode perder</li>
+      <li>Se sentir que perdeu o controle, deve buscar ajuda</li>
+    </ul>
+
+    <div class="help-box">
+      <h4>🆘 Recursos de ajuda:</h4>
+      <ul>
+        <li><strong>Jogadores Anônimos:</strong> (11) 3229-1023</li>
+        <li><strong>CVV (Centro de Valorização da Vida):</strong> 188 (24h, gratuito)</li>
+        <li><strong>Site:</strong> www.jogadoresanonimos.com.br</li>
+      </ul>
+    </div>
+
+    <h2>9. Propriedade Intelectual</h2>
+    <p>Todo o conteúdo, código, marca e design do Sniper Double PRO são de nossa propriedade exclusiva. "Blaze" e "Double" são marcas de seus respectivos proprietários, não tendo nenhuma relação conosco.</p>
+
+    <h2>10. Modificações no Serviço</h2>
+    <p>Podemos modificar, suspender ou descontinuar o serviço a qualquer momento, sem aviso prévio. Também podemos lançar atualizações do software, que serão disponibilizadas aos clientes vitalícios gratuitamente.</p>
+
+    <h2>11. Suporte Técnico</h2>
+    <p>O suporte técnico é fornecido exclusivamente via Telegram: <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></p>
+    <p><strong>Horário de atendimento:</strong> Segunda a sexta, 9h às 18h (horário de Brasília)</p>
+    <p>Não garantimos tempo de resposta, mas nos esforçamos para responder o mais rápido possível.</p>
+
+    <h2>12. Rescisão</h2>
+    <p>Podemos suspender ou encerrar seu acesso ao serviço por violação destes termos, sem reembolso.</p>
+
+    <h2>13. Foro</h2>
+    <p>Estes termos são regidos pelas leis brasileiras. Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer controvérsias.</p>
+
+    <h2>14. Disposições Gerais</h2>
+    <p>Se qualquer disposição destes termos for considerada inválida ou inaplicável, as demais disposições continuarão em pleno vigor e efeito.</p>
+
+    <h2>15. Contato</h2>
+    <p>Dúvidas sobre estes termos:</p>
+    <p><strong>Telegram:</strong> <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="logo">⚪ Sniper Double PRO</div>
+      <p>Ferramenta de monitoramento para Windows 10 e 11.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Sniper Double PRO. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>

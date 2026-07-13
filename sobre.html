@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Nós - Sniper Double PRO</title>
+<meta name="description" content="Conheça a história e missão do Sniper Double PRO, ferramenta de monitoramento para Windows 10 e 11.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #131521;
+  --bg-card: rgba(30, 33, 48, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a5b0;
+  --text-muted: #6b7280;
+  --accent-red: #f12c4c;
+  --accent-green: #00d26a;
+  --accent-blue: #0a84ff;
+  --accent-yellow: #ffd60a;
+  --accent-purple: #bf5af2;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f12c4c 50%, #0a84ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+
+.page-hero {
+  padding: 140px 0 60px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.page-hero p {
+  color: var(--text-secondary);
+  font-size: 17px;
+}
+
+.about-content { padding: 80px 0; }
+
+.about-section {
+  margin-bottom: 64px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.about-section h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--accent-green);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-section p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.values-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.values-list li {
+  padding: 16px 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+}
+
+.values-list li:last-child { border-bottom: none; }
+
+.values-list .icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.warning-box {
+  background: rgba(241, 44, 76, 0.05);
+  border: 1px solid rgba(241, 44, 76, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.warning-box h2 { color: var(--accent-red); }
+
+.warning-box ul {
+  list-style: disc;
+  margin-left: 24px;
+  color: var(--text-secondary);
+}
+
+.warning-box li { margin-bottom: 10px; line-height: 1.7; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent-green);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 40px 0 24px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 24px 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(:last-child) { display: none; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .about-section { padding: 24px; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <a href="index.html" class="logo">⚪ Sniper Double PRO</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="index.html#preco">Preço</a>
+      <a href="contato.html">Contato</a>
+      <a href="https://t.me/sniperdoublepro" target="_blank">💬 Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Sobre o Sniper Double PRO</h1>
+    <p>Conheça nossa história, missão e valores.</p>
+  </div>
+</section>
+
+<section class="about-content">
+  <div class="container">
+
+    <div class="about-section">
+      <h2>🎯 Nossa História</h2>
+      <p>O Sniper Double PRO nasceu em 2024 da necessidade de um grupo de amigos que jogavam Blaze Double e perdiam horas monitorando a tela esperando oportunidades. Cansados dessa rotina improdutiva, decidimos desenvolver uma ferramenta que fizesse esse trabalho automaticamente.</p>
+      <p>Após meses de desenvolvimento, testes e ajustes, criamos a primeira versão do Sniper Double PRO. O feedback foi tão positivo entre os amigos que decidimos tornar a ferramenta disponível para outras pessoas que enfrentam o mesmo problema.</p>
+      <p>Hoje, somos uma pequena equipe de desenvolvedores brasileiros focados em criar ferramentas úteis e honestas para nossos usuários.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">2024</div>
+          <div class="stat-label">Ano de criação</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">🇧🇷</div>
+          <div class="stat-label">Empresa brasileira</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">🪟</div>
+          <div class="stat-label">Windows 10 e 11</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2>🚀 Nossa Missão</h2>
+      <p>Ajudar pessoas a <strong>otimizar seu tempo</strong> ao monitorar o Blaze Double, fornecendo uma ferramenta confiável, simples e acessível que detecta padrões automaticamente enquanto o computador estiver ligado.</p>
+      <p>Acreditamos que tecnologia deve servir para melhorar a qualidade de vida, não para criar mais dependência de telas. Por isso criamos uma ferramenta que trabalha em segundo plano e avisa você apenas quando algo importante acontece.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>💎 Nossos Valores</h2>
+      <ul class="values-list">
+        <li>
+          <span class="icon">🎯</span>
+          <div><strong>Transparência:</strong> Somos claros sobre o que a ferramenta faz e o que ela NÃO faz. Não prometemos ganhos financeiros e deixamos claro que é apenas uma ferramenta de monitoramento.</div>
+        </li>
+        <li>
+          <span class="icon">🛡️</span>
+          <div><strong>Honestidade:</strong> Não somos afiliados da Blaze e não recebemos comissão de nenhuma plataforma de jogos. Nossa única fonte de renda é a venda do software.</div>
+        </li>
+        <li>
+          <span class="icon">🤝</span>
+          <div><strong>Suporte:</strong> Tratamos cada cliente com respeito e respondemos todas as dúvidas rapidamente via Telegram.</div>
+        </li>
+        <li>
+          <span class="icon">♻️</span>
+          <div><strong>Jogo Responsável:</strong> Incentivamos o uso consciente e fornecemos recursos de ajuda para quem precisa. Aposte apenas o que pode perder.</div>
+        </li>
+        <li>
+          <span class="icon">🔒</span>
+          <div><strong>Privacidade:</strong> Respeitamos seus dados e seguimos rigorosamente a LGPD. Seu token do Telegram é armazenado apenas localmente.</div>
+        </li>
+        <li>
+          <span class="icon">⚡</span>
+          <div><strong>Qualidade:</strong> Desenvolvemos com atenção aos detalhes e testamos extensivamente antes de lançar cada atualização.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>👥 Nossa Equipe</h2>
+      <p>Somos uma pequena equipe de desenvolvedores brasileiros apaixonados por tecnologia e por criar ferramentas úteis. Trabalhamos remotamente e atendemos clientes de todo o Brasil.</p>
+      <p><strong>Localização:</strong> São Paulo, SP - Brasil</p>
+      <p><strong>Contato:</strong> <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></p>
+      <p><strong>Horário de atendimento:</strong> Segunda a sexta, 9h às 18h (horário de Brasília)</p>
+    </div>
+
+    <div class="about-section warning-box">
+      <h2>⚠️ Aviso Importante</h2>
+      <p><strong>Não somos:</strong></p>
+      <ul>
+        <li>Afiliados, parceiros ou representantes da Blaze</li>
+        <li>Consultores financeiros ou de apostas</li>
+        <li>Garantidores de qualquer resultado financeiro</li>
+        <li>Uma plataforma de jogos</li>
+      </ul>
+      <p style="margin-top: 16px;"><strong>Somos apenas:</strong> desenvolvedores que criaram uma ferramenta de monitoramento para ajudar pessoas a otimizar seu tempo enquanto o computador estiver ligado.</p>
+      <p style="margin-top: 16px;">Jogos de azar envolvem risco. Aposte apenas o que você pode perder. Se precisar de ajuda, ligue para o CVV: <strong>188</strong> (24h, gratuito) ou procure Jogadores Anônimos: <strong>(11) 3229-1023</strong>.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="logo">⚪ Sniper Double PRO</div>
+      <p>Ferramenta de monitoramento para Windows 10 e 11.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="termos.html">Termos</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Sniper Double PRO. Todos os direitos reservados.</p>
+    <p style="margin-top: 8px;">Blaze e Double são marcas registradas de seus respectivos proprietários.</p>
+  </div>
+</footer>
+
+</body>
+</html>

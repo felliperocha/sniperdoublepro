@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato - Sniper Double PRO</title>
+<meta name="description" content="Entre em contato com o Sniper Double PRO via Telegram. Suporte rápido e eficiente.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #131521;
+  --bg-card: rgba(30, 33, 48, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a5b0;
+  --text-muted: #6b7280;
+  --accent-red: #f12c4c;
+  --accent-green: #00d26a;
+  --accent-blue: #0a84ff;
+  --accent-yellow: #ffd60a;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f12c4c 50%, #0a84ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+
+.page-hero {
+  padding: 140px 0 60px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.page-hero p {
+  color: var(--text-secondary);
+  font-size: 17px;
+}
+
+.contact-content { padding: 80px 0; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.contact-info h2,
+.contact-form-wrapper h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.contact-item:hover {
+  border-color: var(--accent-green);
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.15), rgba(0, 210, 106, 0.15));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.contact-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.contact-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.contact-note {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  margin-top: 4px;
+}
+
+.contact-form-wrapper p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.purchase-steps {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.purchase-step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.purchase-step:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-content p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  box-shadow: 0 10px 30px rgba(0, 210, 106, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 210, 106, 0.4);
+  text-decoration: none;
+}
+
+.warning-box {
+  background: rgba(241, 44, 76, 0.05);
+  border: 1px solid rgba(241, 44, 76, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.warning-box h4 {
+  color: var(--accent-red);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.warning-box ul {
+  list-style: disc;
+  margin-left: 24px;
+  color: var(--text-secondary);
+}
+
+.warning-box li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.faq-quick {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+.faq-quick h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.faq-quick p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.faq-quick .btn-primary {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 40px 0 24px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 24px 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(:last-child) { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <a href="index.html" class="logo">⚪ Sniper Double PRO</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="index.html#preco">Preço</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://t.me/sniperdoublepro" target="_blank">💬 Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Entre em Contato</h1>
+    <p>Estamos aqui para ajudar. Responderemos rapidamente via Telegram.</p>
+  </div>
+</section>
+
+<section class="contact-content">
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h2>📞 Canais de Atendimento</h2>
+
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <h3>Telegram (Principal)</h3>
+            <p><a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></p>
+            <p class="contact-note">Resposta rápida • Canal oficial</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <h3>Horário de Atendimento</h3>
+            <p>Segunda a sexta: 9h às 18h</p>
+            <p>Sábado: 9h às 13h</p>
+            <p class="contact-note">Domingos e feriados: fechado</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h3>Localização</h3>
+            <p>São Paulo, SP - Brasil</p>
+            <p class="contact-note">Atendimento 100% online</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🪟</div>
+          <div>
+            <h3>Compatibilidade</h3>
+            <p>Windows 10 e Windows 11</p>
+            <p class="contact-note">Apenas sistemas Windows 64 bits</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h2>🛒 Como Comprar</h2>
+        <p>O processo de compra é simples, rápido e 100% via Telegram:</p>
+
+        <div class="purchase-steps">
+          <div class="purchase-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Entre em contato</h3>
+              <p>Envie uma mensagem no Telegram informando que deseja adquirir o Sniper Double PRO.</p>
+            </div>
+          </div>
+
+          <div class="purchase-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Receba a chave PIX</h3>
+              <p>Enviaremos a chave PIX para pagamento de R$ 67.</p>
+            </div>
+          </div>
+
+          <div class="purchase-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Realize o pagamento</h3>
+              <p>Faça o pagamento via PIX e envie o comprovante no Telegram.</p>
+            </div>
+          </div>
+
+          <div class="purchase-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Receba o produto</h3>
+              <p>Em até 72 horas, você receberá o arquivo do programa + tutorial de instalação.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://t.me/sniperdoublepro" target="_blank" class="btn-primary">
+          💬 Comprar via Telegram - R$ 67
+        </a>
+
+        <div class="warning-box">
+          <h4>⚠️ Importante:</h4>
+          <ul>
+            <li>Pagamento apenas via PIX</li>
+            <li>Entrega em até 72 horas após confirmação</li>
+            <li>Sem garantia de reembolso (produto digital)</li>
+            <li>Suporte técnico via Telegram</li>
+            <li>Compatível apenas com Windows 10 e 11</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="faq-quick">
+      <h2>❓ Perguntas frequentes</h2>
+      <p>Antes de entrar em contato, verifique se sua dúvida já está respondida no nosso FAQ.</p>
+      <a href="index.html#faq" class="btn-primary">Ver FAQ Completo</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="logo">⚪ Sniper Double PRO</div>
+      <p>Ferramenta de monitoramento para Windows 10 e 11.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="termos.html">Termos</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Sniper Double PRO. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>

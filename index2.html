@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sniper Double PRO - Detector de Brancos para Windows | Blaze Double</title>
+<meta name="description" content="Ferramenta de monitoramento para Windows 10 e 11. Receba alertas no Telegram quando brancos ou sequências forem detectados no Blaze Double. Funciona enquanto seu PC estiver ligado.">
+<meta name="keywords" content="blaze double, detector branco, sniper double, monitoramento blaze, alerta telegram, windows">
+<meta name="author" content="Sniper Double PRO">
+
+<link rel="canonical" href="https://SEU-USUARIO.github.io/sniper-double-pro/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://SEU-USUARIO.github.io/sniper-double-pro/">
+<meta property="og:title" content="Sniper Double PRO - Detector de Brancos para Windows">
+<meta property="og:description" content="Monitore o Blaze Double enquanto seu PC estiver ligado. Receba alertas no Telegram automaticamente.">
+<meta property="og:image" content="https://SEU-USUARIO.github.io/sniper-double-pro/og-image.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Sniper Double PRO - Detector de Brancos para Windows">
+<meta property="twitter:description" content="Monitore o Blaze Double enquanto seu PC estiver ligado. Receba alertas no Telegram automaticamente.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚪</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #131521;
+  --bg-card: rgba(30, 33, 48, 0.6);
+  --bg-card-hover: rgba(40, 43, 58, 0.8);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a5b0;
+  --text-muted: #6b7280;
+  --accent-red: #f12c4c;
+  --accent-green: #00d26a;
+  --accent-blue: #0a84ff;
+  --accent-yellow: #ffd60a;
+  --accent-purple: #bf5af2;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ==================== HEADER ==================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f12c4c 50%, #0a84ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+
+.btn-header {
+  padding: 10px 20px !important;
+  background: linear-gradient(135deg, var(--accent-green), #00a855) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 700 !important;
+  transition: transform 0.2s;
+}
+
+.btn-header:hover { transform: translateY(-2px); }
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  padding: 160px 0 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(241, 44, 76, 0.15) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(10, 132, 255, 0.1);
+  border: 1px solid rgba(10, 132, 255, 0.3);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 24px;
+}
+
+.hero-badge::before {
+  content: '🪟';
+  font-size: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 .gradient {
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btn-primary {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 10px 30px rgba(0, 210, 106, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 210, 106, 0.4);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-stat { text-align: center; }
+
+.hero-stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* ==================== APP PREVIEW ==================== */
+.app-preview { padding: 80px 0; }
+
+.preview-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.preview-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(20px);
+}
+
+.preview-mockup {
+  background: #0a0a0f;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+
+.mockup-header {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.mockup-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.mockup-dot.red { background: #ff5f57; }
+.mockup-dot.yellow { background: #febc2e; }
+.mockup-dot.green { background: #28c840; }
+
+.mockup-sequence {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.mockup-item {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mockup-item.red { background: linear-gradient(135deg, #f12c4c, #c41e3a); }
+.mockup-item.black { background: linear-gradient(135deg, #2d3348, #1e2130); border: 1px solid rgba(255,255,255,0.1); }
+.mockup-item.white { background: #fff; color: #f12c4c; }
+
+.mockup-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.mockup-stat {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.mockup-stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.mockup-stat-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* ==================== SECTIONS ==================== */
+.problem, .how-works, .requirements {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.solution, .pricing, .faq, .testimonials, .final-cta {
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(241, 44, 76, 0.1);
+  border: 1px solid rgba(241, 44, 76, 0.3);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.solution-tag {
+  background: rgba(0, 210, 106, 0.1);
+  border-color: rgba(0, 210, 106, 0.3);
+  color: var(--accent-green);
+}
+
+.how-tag {
+  background: rgba(10, 132, 255, 0.1);
+  border-color: rgba(10, 132, 255, 0.3);
+  color: var(--accent-blue);
+}
+
+.price-tag {
+  background: rgba(255, 214, 10, 0.1);
+  border-color: rgba(255, 214, 10, 0.3);
+  color: var(--accent-yellow);
+}
+
+.requirements-tag {
+  background: rgba(191, 90, 242, 0.1);
+  border-color: rgba(191, 90, 242, 0.3);
+  color: var(--accent-purple);
+}
+
+.testimonials-tag, .faq-tag {
+  background: rgba(191, 90, 242, 0.1);
+  border-color: rgba(191, 90, 242, 0.3);
+  color: var(--accent-purple);
+}
+
+.section-header h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ==================== PROBLEMS ==================== */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.problem-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: transform 0.3s;
+}
+
+.problem-card:hover { transform: translateY(-4px); }
+
+.problem-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(241, 44, 76, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.problem-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.problem-card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==================== FEATURES ==================== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-green);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover::before { transform: scaleX(1); }
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(0, 210, 106, 0.15), rgba(10, 132, 255, 0.15));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==================== REQUIREMENTS ==================== */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.requirement-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.requirement-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.requirement-list {
+  list-style: none;
+}
+
+.requirement-list li {
+  padding: 10px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.requirement-list li:last-child { border-bottom: none; }
+
+.requirement-list li::before {
+  content: '✓';
+  color: var(--accent-green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.requirement-note {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(10, 132, 255, 0.1);
+  border: 1px solid rgba(10, 132, 255, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ==================== STEPS ==================== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.step { text-align: center; }
+
+.step-number {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 30px rgba(0, 210, 106, 0.3);
+}
+
+.step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.step p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==================== PRICING ==================== */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-green);
+  border-radius: 20px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.3s;
+  background: linear-gradient(180deg, rgba(0, 210, 106, 0.05) 0%, var(--bg-card) 100%);
+}
+
+.price-card::before {
+  content: '🔥 OFERTA ESPECIAL';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.price-card:hover { transform: translateY(-4px); }
+
+.price-name {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.price-old {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.price-old span {
+  text-decoration: line-through;
+  color: var(--accent-red);
+}
+
+.price-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.price-currency {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.price-number {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent-green);
+}
+
+.price-period {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.price-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.price-features li {
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.price-features li::before {
+  content: '✓';
+  color: var(--accent-green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.btn-price {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: all 0.2s;
+  box-shadow: 0 10px 30px rgba(0, 210, 106, 0.3);
+}
+
+.btn-price:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 210, 106, 0.4);
+  text-decoration: none;
+}
+
+/* ==================== PRICING INFO ==================== */
+.pricing-info {
+  max-width: 800px;
+  margin: 48px auto 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.pricing-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.pricing-info ol {
+  margin-left: 24px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.pricing-info li {
+  margin-bottom: 12px;
+}
+
+.warning-box {
+  background: rgba(241, 44, 76, 0.05);
+  border: 1px solid rgba(241, 44, 76, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.warning-box h4 {
+  color: var(--accent-red);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.warning-box ul {
+  list-style: disc;
+  margin-left: 24px;
+  color: var(--text-secondary);
+}
+
+.warning-box li {
+  margin-bottom: 8px;
+}
+
+/* ==================== TESTIMONIALS ==================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.testimonial-stars {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.testimonial-text {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.author-info {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ==================== FAQ ==================== */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.faq-question {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--accent-green);
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 24px 24px;
+}
+
+.faq-answer p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ==================== FINAL CTA ==================== */
+.final-cta {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 210, 106, 0.15) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.final-cta h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.final-cta p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.final-cta-note {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 20px;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 12px;
+  max-width: 400px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--text-primary); text-decoration: none; }
+
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.responsible-gaming {
+  background: rgba(241, 44, 76, 0.1);
+  border: 1px solid rgba(241, 44, 76, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.responsible-gaming h4 {
+  color: var(--accent-red);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.responsible-gaming p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ==================== COOKIE BANNER ==================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(19, 21, 33, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  display: none;
+}
+
+.cookie-banner.show { display: block; }
+
+.cookie-banner h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cookie-banner p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.cookie-banner a { color: var(--accent-blue); }
+
+.cookie-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cookie-buttons button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cookie-accept {
+  background: linear-gradient(135deg, var(--accent-green), #00a855);
+  color: #fff;
+}
+
+.cookie-reject {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border) !important;
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 768px) {
+  .nav-links a:not(.btn-header) { display: none; }
+  .mobile-menu-btn { display: block; }
+  .hero-stats { gap: 24px; }
+  .hero-stat-value { font-size: 24px; }
+  .footer-content { grid-template-columns: 1fr; gap: 32px; }
+  .price-number { font-size: 56px; }
+  .mockup-stats { grid-template-columns: repeat(2, 1fr); }
+  .price-card { padding: 32px 24px; }
+  .hero { padding: 140px 0 80px; }
+  .problem, .how-works, .solution, .pricing, .faq, .testimonials, .final-cta, .requirements {
+    padding: 60px 0;
+  }
+  .requirements-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="index.html" class="logo">⚪ Sniper Double PRO</a>
+      <nav class="nav-links">
+        <a href="#recursos">Recursos</a>
+        <a href="#requisitos">Requisitos</a>
+        <a href="#preco">Preço</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://t.me/sniperdoublepro" target="_blank" class="btn-header">💬 Comprar via Telegram</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span>Compatível com Windows 10 e 11</span>
+    </div>
+    <h1>
+      Pare de ficar horas na tela<br>
+      <span class="gradient">esperando o branco aparecer.</span>
+    </h1>
+    <p class="hero-subtitle">
+      O Sniper Double PRO monitora o Blaze Double enquanto seu computador estiver ligado e te avisa no Telegram sempre que detecta um branco ou uma sequência ativada. Você só olha quando importa.
+    </p>
+    <div class="hero-cta">
+      <a href="#preco" class="btn-primary">
+        🚀 Começar agora por R$ 67
+      </a>
+      <a href="#como-funciona" class="btn-secondary">
+        ▶ Ver como funciona
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">⚡</div>
+        <div class="hero-stat-label">Tempo Real</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">&lt; 1s</div>
+        <div class="hero-stat-label">Após Detecção</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">🪟</div>
+        <div class="hero-stat-label">Windows 10/11</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== APP PREVIEW ==================== -->
+<section class="app-preview">
+  <div class="container">
+    <div class="preview-wrapper">
+      <div class="preview-mockup">
+        <div class="mockup-header">
+          <div class="mockup-dot red"></div>
+          <div class="mockup-dot yellow"></div>
+          <div class="mockup-dot green"></div>
+        </div>
+        <div class="mockup-sequence">
+          <div class="mockup-item red">3</div>
+          <div class="mockup-item black">7</div>
+          <div class="mockup-item red">12</div>
+          <div class="mockup-item black">2</div>
+          <div class="mockup-item red">8</div>
+          <div class="mockup-item white">0</div>
+          <div class="mockup-item black">5</div>
+          <div class="mockup-item red">11</div>
+          <div class="mockup-item red">4</div>
+          <div class="mockup-item red">9</div>
+          <div class="mockup-item red">1</div>
+          <div class="mockup-item red">14</div>
+        </div>
+        <div class="mockup-stats">
+          <div class="mockup-stat">
+            <div class="mockup-stat-value" style="color: #8c9099">23</div>
+            <div class="mockup-stat-label">⚫ Preto</div>
+          </div>
+          <div class="mockup-stat">
+            <div class="mockup-stat-value" style="color: #f12c4c">42</div>
+            <div class="mockup-stat-label">🔴 Vermelho</div>
+          </div>
+          <div class="mockup-stat">
+            <div class="mockup-stat-value" style="color: #fff">8</div>
+            <div class="mockup-stat-label">⚪ Branco</div>
+          </div>
+          <div class="mockup-stat">
+            <div class="mockup-stat-value" style="color: #0a84ff">73</div>
+            <div class="mockup-stat-label">🎯 Total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROBLEMA ==================== -->
+<section class="problem">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">O Problema</div>
+      <h2>Você já perdeu um branco<br>porque não estava olhando?</h2>
+      <p>Ficar horas monitorando uma tela é cansativo, improdutivo e quase impossível de manter por muito tempo.</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <div class="problem-icon">⏰</div>
+        <h3>Horas perdidas</h3>
+        <p>Você passa horas encarando a tela esperando uma oportunidade que pode nem aparecer no dia.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">😴</div>
+        <h3>Cansaço mental</h3>
+        <p>Depois de um tempo, a atenção cai e você perde os momentos mais importantes por distração.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📱</div>
+        <h3>Não dá pra viver assim</h3>
+        <p>Você precisa trabalhar, estudar, dormir. Não dá pra ficar preso na frente da tela o dia todo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SOLUÇÃO ==================== -->
+<section class="solution" id="recursos">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag solution-tag">A Solução</div>
+      <h2>Tudo o que você precisa<br>em uma única ferramenta</h2>
+      <p>O Sniper Double PRO faz o trabalho duro pra você. Monitore, detecte e receba alertas automaticamente.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Detecção em tempo real</h3>
+        <p>Monitora o Blaze Double a cada 200ms enquanto seu PC estiver ligado. Detecta brancos e sequências no exato momento em que acontecem.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📲</div>
+        <h3>Alertas no Telegram</h3>
+        <p>Receba notificações instantâneas no seu celular. Configure seu bot e chat ID uma vez e pronto.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Estatísticas completas</h3>
+        <p>Veja a contagem de pretos, vermelhos, brancos e o total de giros. Histórico completo disponível.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Gatilhos configuráveis</h3>
+        <p>Defina quantas cores seguidas ativam o alerta. Personalize de acordo com sua estratégia.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Configurações persistentes</h3>
+        <p>Tudo é salvo automaticamente. Feche e abra o programa: suas configurações estão lá.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🪟</div>
+        <h3>Otimizado para Windows</h3>
+        <p>Compatível com Windows 10 e 11. Instalação simples, sem complicação técnica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== REQUISITOS ==================== -->
+<section class="requirements" id="requisitos">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag requirements-tag">Requisitos</div>
+      <h2>O que você precisa<br>para usar o Sniper Double PRO</h2>
+      <p>Requisitos mínimos para instalação e funcionamento.</p>
+    </div>
+    <div class="requirements-grid">
+      <div class="requirement-card">
+        <h3>🪟 Sistema Operacional</h3>
+        <ul class="requirement-list">
+          <li>Windows 10 (64 bits)</li>
+          <li>Windows 11 (64 bits)</li>
+          <li>Atualizações do Windows em dia</li>
+        </ul>
+        <div class="requirement-note">
+          ⚠️ <strong>Importante:</strong> O programa funciona apenas em Windows. Não é compatível com Mac, Linux, celulares ou tablets.
+        </div>
+      </div>
+      <div class="requirement-card">
+        <h3>⚙️ Hardware e Conexão</h3>
+        <ul class="requirement-list">
+          <li>Processador: 1 GHz ou superior</li>
+          <li>Memória RAM: 2 GB ou mais</li>
+          <li>Espaço em disco: 500 MB livres</li>
+          <li>Conexão com internet estável</li>
+          <li>Conta no Telegram (gratuita)</li>
+        </ul>
+        <div class="requirement-note">
+          💡 <strong>Dica:</strong> O programa funciona enquanto seu computador estiver ligado. Se desligar o PC, o monitoramento para automaticamente.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COMO FUNCIONA ==================== -->
+<section class="how-works" id="como-funciona">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag how-tag">Como Funciona</div>
+      <h2>Comece a usar em 3 passos</h2>
+      <p>Configuração simples. Sem tutoriais longos. Sem complicação técnica.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Entre em contato</h3>
+        <p>Envie uma mensagem no Telegram informando que deseja adquirir o Sniper Double PRO.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Realize o pagamento</h3>
+        <p>Receba a chave PIX e realize o pagamento de R$ 67. Envie o comprovante no Telegram.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Receba o produto</h3>
+        <p>Em até 72 horas, você receberá o arquivo do programa + instruções de instalação no Telegram.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PREÇO ==================== -->
+<section class="pricing" id="preco">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag price-tag">Preço Especial</div>
+      <h2>Acesso vitalício por apenas</h2>
+      <p>Pagamento único via PIX. Sem mensalidades. Sem surpresas.</p>
+    </div>
+    <div class="pricing-cards">
+      <div class="price-card">
+        <div class="price-name">Acesso Vitalício</div>
+        <div class="price-old">De <span>R$ 97</span> por apenas</div>
+        <div class="price-value">
+          <span class="price-currency">R$</span>
+          <span class="price-number">67</span>
+        </div>
+        <div class="price-period">pagamento único via PIX</div>
+        <ul class="price-features">
+          <li><strong>Acesso vitalício</strong> ao Sniper Double PRO</li>
+          <li>Alertas ilimitados no Telegram</li>
+          <li>Todos os recursos de monitoramento</li>
+          <li>Atualizações gratuitas</li>
+          <li>Suporte via Telegram</li>
+          <li>Entrega em até 72 horas</li>
+          <li>Compatível com Windows 10 e 11</li>
+        </ul>
+        <a href="https://t.me/sniperdoublepro" target="_blank" class="btn-price">💬 Comprar via Telegram</a>
+      </div>
+    </div>
+    
+    <div class="pricing-info">
+      <h3>📋 Como funciona a compra:</h3>
+      <ol>
+        <li>Clique no botão acima ou entre em contato via Telegram: <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></li>
+        <li>Informe que deseja adquirir o Sniper Double PRO</li>
+        <li>Receba a chave PIX e realize o pagamento de R$ 67</li>
+        <li>Envie o comprovante de pagamento no Telegram</li>
+        <li>Em até 72 horas, receba o arquivo do programa + instruções de instalação</li>
+      </ol>
+      
+      <div class="warning-box">
+        <h4>⚠️ Importante:</h4>
+        <ul>
+          <li>Pagamento apenas via PIX</li>
+          <li>Entrega do produto em até 72 horas após confirmação do pagamento</li>
+          <li>Sem garantia de reembolso (produto digital)</li>
+          <li>Suporte técnico via Telegram</li>
+          <li>Compatível apenas com Windows 10 e 11</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DEPOIMENTOS ==================== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag testimonials-tag">Depoimentos</div>
+      <h2>O que nossos usuários dizem</h2>
+      <p>Experiências reais de quem usa o Sniper Double PRO no dia a dia.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"Deixei o programa rodando enquanto trabalhava e recebi o alerta no celular na hora. Economizei horas de tela."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div>
+            <div class="author-name">Ricardo S.</div>
+            <div class="author-info">Windows 11</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"Instalei no meu Windows 10 em menos de 5 minutos. O tutorial do Telegram é bem claro e direto."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-name">Ana P.</div>
+            <div class="author-info">Windows 10</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"O suporte respondeu minha dúvida em menos de 1 hora pelo Telegram. Atendimento rápido e eficiente."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Marcos L.</div>
+            <div class="author-info">Windows 11</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag faq-tag">Dúvidas Frequentes</div>
+      <h2>Perguntas frequentes</h2>
+      <p>Se sua dúvida não estiver aqui, entre em contato via Telegram.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">O Sniper Double PRO garante ganhos?</div>
+        <div class="faq-answer">
+          <p><strong>Não.</strong> O Sniper Double PRO é uma ferramenta de monitoramento e análise. Ele detecta padrões e envia alertas quando brancos ou sequências são identificados. Não há nenhuma garantia de resultado financeiro. Jogos de azar envolvem risco e você só deve apostar o que pode perder.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Em quais sistemas o programa funciona?</div>
+        <div class="faq-answer">
+          <p>O Sniper Double PRO funciona <strong>apenas em Windows 10 e Windows 11 (64 bits)</strong>. Não é compatível com Mac, Linux, ChromeOS, celulares Android ou iPhone, tablets ou qualquer outro sistema operacional. Verifique os requisitos completos na seção "Requisitos" acima.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">O programa funciona 24 horas por dia?</div>
+        <div class="faq-answer">
+          <p>O programa funciona <strong>enquanto seu computador estiver ligado</strong>. Se você desligar o PC, o monitoramento para automaticamente e só volta quando você ligar o computador novamente e abrir o programa. Para monitoramento contínuo, mantenha o PC ligado.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Preciso ter conta no Telegram?</div>
+        <div class="faq-answer">
+          <p>Sim. Os alertas são enviados via Telegram. Você precisará criar um bot com o @BotFather (leva 2 minutos) e configurar o chat ID. Temos um tutorial passo a passo incluído junto com o programa.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Como funciona o pagamento?</div>
+        <div class="faq-answer">
+          <p>O pagamento é feito via PIX. Após entrar em contato no Telegram, você receberá a chave PIX e realizará o pagamento de R$ 67. Envie o comprovante e em até 72 horas receberá o produto.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Tem garantia de reembolso?</div>
+        <div class="faq-answer">
+          <p><strong>Não.</strong> Por se tratar de um produto digital entregue via Telegram, não oferecemos garantia de reembolso. Certifique-se de que realmente deseja o produto e que seu computador atende aos requisitos (Windows 10 ou 11) antes de realizar o pagamento.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Quanto tempo demora para receber o produto?</div>
+        <div class="faq-answer">
+          <p>Após a confirmação do pagamento, o produto é entregue em até 72 horas via Telegram. Normalmente entregamos em menos de 24 horas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">É seguro usar?</div>
+        <div class="faq-answer">
+          <p>Sim. O Sniper Double PRO apenas lê dados públicos do site do Blaze Double. Não acessa sua conta, não armazena senhas e não realiza operações em seu nome. Seu token do Telegram é armazenado apenas localmente, no seu computador.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Funciona em celular?</div>
+        <div class="faq-answer">
+          <p><strong>Não diretamente.</strong> O programa roda apenas em computadores com Windows 10 ou 11. Porém, os alertas chegam no seu celular via Telegram, então você pode receber as notificações em qualquer lugar, mesmo longe do computador.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Posso instalar em mais de um computador?</div>
+        <div class="faq-answer">
+          <p>O acesso vitalício permite uso em até 2 computadores do mesmo usuário, desde que ambos sejam Windows 10 ou 11. Para uso comercial ou em mais máquinas, entre em contato.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Como entro em contato para comprar?</div>
+        <div class="faq-answer">
+          <p>Você pode entrar em contato via Telegram: <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a>. Respondemos rapidamente e te ajudamos com todo o processo de compra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Pronto pra parar de perder tempo?</h2>
+    <p>Deixe o Sniper Double PRO monitorar o Blaze Double enquanto você faz outras coisas. Receba alertas no Telegram quando algo importante acontecer.</p>
+    <a href="https://t.me/sniperdoublepro" target="_blank" class="btn-primary">💬 Comprar via Telegram - R$ 67</a>
+    <p class="final-cta-note">💳 Pagamento via PIX • ⚡ Entrega em até 72h • 🪟 Windows 10 e 11</p>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="container">
+    
+    <div class="responsible-gaming">
+      <h4>⚠️ Jogo Responsável</h4>
+      <p>
+        O Sniper Double PRO é uma ferramenta de monitoramento e <strong>não garante ganhos</strong>. 
+        Jogos de azar envolvem risco financeiro e podem causar dependência. Aposte apenas o que você pode perder. 
+        Se você ou alguém que conhece tem problemas com jogo, procure ajuda: 
+        <strong>Jogadores Anônimos: (11) 3229-1023</strong> | 
+        <strong>CVV: 188</strong> (24h, gratuito). 
+        Proibido para menores de 18 anos.
+      </p>
+    </div>
+    
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">⚪ Sniper Double PRO</div>
+        <p>Ferramenta de monitoramento para Windows 10 e 11. Não somos afiliados, parceiros ou representantes da Blaze.</p>
+        <p style="margin-top: 12px;"><strong>Contato:</strong> <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Produto</h4>
+        <a href="#recursos">Recursos</a>
+        <a href="#requisitos">Requisitos</a>
+        <a href="#preco">Preço</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacidade.html">Política de Privacidade</a>
+        <a href="cookies.html">Política de Cookies</a>
+        <a href="termos.html">Termos de Uso</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Sniper Double PRO. Todos os direitos reservados.</p>
+      <p style="margin-top: 8px;">Blaze e Double são marcas registradas de seus respectivos proprietários. Não temos nenhuma afiliação com a Blaze.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== COOKIE BANNER ==================== -->
+<div class="cookie-banner" id="cookieBanner">
+  <h4>🍪 Usamos cookies</h4>
+  <p>
+    Este site utiliza cookies para melhorar sua experiência e analisar o tráfego. 
+    Ao continuar navegando, você concorda com nossa 
+    <a href="cookies.html">Política de Cookies</a> e 
+    <a href="privacidade.html">Política de Privacidade</a>.
+  </p>
+  <div class="cookie-buttons">
+    <button class="cookie-reject" onclick="rejectCookies()">Rejeitar</button>
+    <button class="cookie-accept" onclick="acceptCookies()">Aceitar todos</button>
+  </div>
+</div>
+
+<script>
+// ==================== FAQ ACCORDION ====================
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
+  });
+});
+
+// ==================== COOKIE BANNER ====================
+function showCookieBanner() {
+  if (!localStorage.getItem('cookieConsent')) {
+    setTimeout(() => {
+      const banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.add('show');
+    }, 1000);
+  }
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function rejectCookies() {
+  localStorage.setItem('cookieConsent', 'rejected');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+
+// ==================== SMOOTH SCROLL ====================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '') return;
+    
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// ==================== MOBILE MENU ====================
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn && navLinks) {
+  mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-open');
+  });
+}
+
+// ==================== SCROLL ANIMATIONS ====================
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.feature-card, .problem-card, .step, .testimonial-card, .requirement-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+  showCookieBanner();
+});
+</script>
+
+</body>
+</html>

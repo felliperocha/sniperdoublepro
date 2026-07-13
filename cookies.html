@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Cookies - Sniper Double PRO</title>
+<meta name="description" content="Política de Cookies do Sniper Double PRO. Saiba como usamos cookies em nosso site.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #131521;
+  --bg-card: rgba(30, 33, 48, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a5b0;
+  --text-muted: #6b7280;
+  --accent-red: #f12c4c;
+  --accent-green: #00d26a;
+  --accent-blue: #0a84ff;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f12c4c 50%, #0a84ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+
+.page-hero {
+  padding: 140px 0 60px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.page-hero .updated {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.legal-content { padding: 80px 0; }
+
+.legal-content h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 48px 0 16px;
+  color: var(--accent-blue);
+}
+
+.legal-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: var(--text-primary);
+}
+
+.legal-content p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.legal-content ul {
+  margin-left: 24px;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+.legal-content li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.legal-content th,
+.legal-content td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-content th {
+  background: rgba(10, 132, 255, 0.1);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.legal-content td {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+strong { color: var(--text-primary); }
+
+.cookie-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.cookie-type {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.cookie-type h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cookie-type p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 40px 0 24px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 24px 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(:last-child) { display: none; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <a href="index.html" class="logo">⚪ Sniper Double PRO</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="https://t.me/sniperdoublepro" target="_blank">💬 Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Política de Cookies</h1>
+    <p class="updated">Última atualização: 08 de julho de 2026</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="container">
+
+    <p>Esta Política de Cookies explica como o <strong>Sniper Double PRO</strong> utiliza cookies e tecnologias semelhantes para reconhecer você quando visita nosso site.</p>
+
+    <h2>1. O que são cookies?</h2>
+    <p>Cookies são pequenos arquivos de texto que são armazenados no seu dispositivo quando você visita um site. Eles são amplamente utilizados para fazer sites funcionarem, melhorar a experiência do usuário e fornecer informações aos proprietários do site.</p>
+
+    <h2>2. Tipos de cookies que usamos</h2>
+
+    <div class="cookie-types">
+      <div class="cookie-type">
+        <h4>🔒 Essenciais</h4>
+        <p>Necessários para o funcionamento do site. Não podem ser desativados.</p>
+      </div>
+      <div class="cookie-type">
+        <h4>📊 Análise</h4>
+        <p>Nos ajudam a entender como os visitantes interagem com o site.</p>
+      </div>
+      <div class="cookie-type">
+        <h4>📢 Publicidade</h4>
+        <p>Usados para exibir anúncios relevantes (Google AdSense).</p>
+      </div>
+      <div class="cookie-type">
+        <h4>⚙️ Funcionalidade</h4>
+        <p>Permitem que o site lembre suas escolhas (como preferências de cookies).</p>
+      </div>
+    </div>
+
+    <h3>2.1 Cookies essenciais (obrigatórios)</h3>
+    <p>Necessários para o funcionamento do site. Não podem ser desativados.</p>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Finalidade</th>
+        <th>Duração</th>
+      </tr>
+      <tr>
+        <td>cookieConsent</td>
+        <td>Lembra sua preferência sobre cookies</td>
+        <td>1 ano</td>
+      </tr>
+    </table>
+
+    <h3>2.2 Cookies de desempenho/análise</h3>
+    <p>Nos ajudam a entender como os visitantes interagem com o site, coletando informações de forma anônima.</p>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Fornecedor</th>
+        <th>Finalidade</th>
+        <th>Duração</th>
+      </tr>
+      <tr>
+        <td>_ga, _gid</td>
+        <td>Google Analytics</td>
+        <td>Análise de tráfego</td>
+        <td>2 anos / 24h</td>
+      </tr>
+      <tr>
+        <td>_gat</td>
+        <td>Google Analytics</td>
+        <td>Limita taxa de solicitação</td>
+        <td>1 minuto</td>
+      </tr>
+    </table>
+
+    <h3>2.3 Cookies de publicidade</h3>
+    <p>Usados para exibir anúncios relevantes para você.</p>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Fornecedor</th>
+        <th>Finalidade</th>
+        <th>Duração</th>
+      </tr>
+      <tr>
+        <td>IDE, test_cookie</td>
+        <td>Google AdSense</td>
+        <td>Exibição de anúncios</td>
+        <td>1 ano / 15 min</td>
+      </tr>
+      <tr>
+        <td>_gcl_au</td>
+        <td>Google Ads</td>
+        <td>Conversões</td>
+        <td>3 meses</td>
+      </tr>
+    </table>
+
+    <h2>3. Google AdSense e DoubleClick</h2>
+    <p>Utilizamos o Google AdSense para exibir anúncios em nosso site. O Google e seus parceiros podem usar cookies para exibir anúncios com base em suas visitas anteriores ao nosso site ou a outros sites na Internet.</p>
+    <p>Você pode desativar a publicidade personalizada acessando as <a href="https://adssettings.google.com" target="_blank">Configurações de Anúncios do Google</a>.</p>
+    <p>Para mais informações sobre como o Google usa dados, consulte a <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidade do Google</a>.</p>
+
+    <h2>4. Cookies do software (Sniper Double PRO)</h2>
+    <p><strong>Importante:</strong> O software Sniper Double PRO <strong>NÃO utiliza cookies</strong>. Ele armazena configurações em um arquivo local chamado <code>config.json</code> no seu computador, que não é um cookie e não é transmitido pela internet.</p>
+    <p>Esse arquivo contém apenas:</p>
+    <ul>
+      <li>Configurações do programa</li>
+      <li>Token do bot do Telegram (armazenado localmente)</li>
+      <li>Chat ID do Telegram (armazenado localmente)</li>
+      <li>Histórico de giros monitorados</li>
+    </ul>
+
+    <h2>5. Como gerenciar cookies</h2>
+    <p>Você pode controlar e/ou excluir cookies como desejar. Para mais informações, visite <a href="https://www.aboutcookies.org" target="_blank">aboutcookies.org</a>.</p>
+
+    <h3>Gerenciamento por navegador:</h3>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/pt-BR/kb/protecao-reforcada-contra-rastreamento" target="_blank">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/pt-br/guide/safari/sfri40732/mac" target="_blank">Safari</a></li>
+      <li><a href="https://support.microsoft.com/pt-br/microsoft-edge" target="_blank">Microsoft Edge</a></li>
+    </ul>
+
+    <p><strong>Atenção:</strong> desabilitar cookies essenciais pode prejudicar o funcionamento do site.</p>
+
+    <h2>6. Consentimento</h2>
+    <p>Ao acessar nosso site pela primeira vez, exibimos um banner solicitando seu consentimento para uso de cookies não essenciais. Você pode:</p>
+    <ul>
+      <li><strong>Aceitar todos:</strong> concorda com todos os cookies</li>
+      <li><strong>Rejeitar:</strong> aceita apenas cookies essenciais</li>
+    </ul>
+    <p>Você pode alterar suas preferências a qualquer momento limpando os cookies do seu navegador.</p>
+
+    <h2>7. Sinais de "Não Rastrear" (Do Not Track)</h2>
+    <p>Atualmente não respondemos a sinais "Do Not Track" dos navegadores, pois não há um padrão consistente adotado pela indústria.</p>
+
+    <h2>8. Alterações nesta política</h2>
+    <p>Podemos atualizar esta política periodicamente. A data da última atualização está indicada no topo desta página.</p>
+
+    <h2>9. Contato</h2>
+    <p>Para dúvidas sobre esta Política de Cookies:</p>
+    <p><strong>Telegram:</strong> <a href="https://t.me/sniperdoublepro" target="_blank">@sniperdoublepro</a></p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="logo">⚪ Sniper Double PRO</div>
+      <p>Ferramenta de monitoramento para Windows 10 e 11.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="termos.html">Termos</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Sniper Double PRO. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
